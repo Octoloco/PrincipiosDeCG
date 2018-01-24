@@ -1,6 +1,0 @@
-﻿  Application.cpp
-c:\users\diego clorio\desktop\tareascg\principiosdecg\prueba\src\application.cpp(10): warning C4309: 'argument': truncation of constant value
-c:\users\diego clorio\desktop\tareascg\principiosdecg\prueba\src\application.cpp(13): warning C4309: 'argument': truncation of constant value
-c:\users\diego clorio\desktop\tareascg\principiosdecg\prueba\src\application.cpp(17): warning C4309: 'argument': truncation of constant value
-c:\users\diego clorio\desktop\tareascg\principiosdecg\prueba\src\application.cpp(20): warning C4309: 'argument': truncation of constant value
-  prueba.vcxproj -> C:\Users\Diego Clorio\Desktop\TareasCG\PrincipiosDeCG\x64\Debug\prueba.exe
