@@ -72,8 +72,7 @@ void BaseApplication::line(int X1, int Y1, int X2, int Y2) {
 		
 		putPixel(x, y, 0, 0, 255, 255);
 		putPixel(-x, y, 0, 0, 255, 255);
-		putPixel(y, x, 0, 0, 255, 255);
-		putPixel(-y, x, 0, 0, 255, 255);
+	
 		
 		
 		

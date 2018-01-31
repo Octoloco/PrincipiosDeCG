@@ -22,6 +22,7 @@ void Application::draw() {
 		int y = 1000 * sin((angulo*3.1416) / 180);
 		line(WIDTH / 2, HEIGHT / 2, x, y);
 		
+		
 
 	}
 
@@ -33,7 +34,7 @@ void Application::draw() {
 
 
 	
-	/*for (int i = 0; i < WIDTH; i++) {
+	for (int i = 0; i < WIDTH; i++) {
 		putPixel(i, HEIGHT/2,0,255,0,255);
 	}
 	for (int i = 0; i < WIDTH; i++) {
@@ -45,7 +46,7 @@ void Application::draw() {
 	}
 	for (int i = 0; i < WIDTH; i++) {
 		putPixel(i*-1, i, 0, 255, 0, 255);
-	}*/
+	}
 	
 
 }
