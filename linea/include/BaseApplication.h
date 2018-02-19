@@ -77,7 +77,7 @@ public:
 	virtual void setup();
 	virtual void update();
 	virtual void draw();
-	void line(int x0, int y0, int x1, int y1);
+	void line(const float& x0, const float& y0, const float& x1, const float& y1);
 	
 	virtual void keyboard(int key, int scancode, int action, int mods);
 };

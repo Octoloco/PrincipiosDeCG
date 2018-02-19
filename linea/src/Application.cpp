@@ -15,12 +15,14 @@ void Application::update() {
 
 void Application::draw() {
 
+	float cx = WIDTH / 2;
+	float cy = HEIGHT / 2;
 
 	for (int angulo = 0; angulo < 360; angulo++)
 	{
-		int x = 1000 * cos((angulo*3.1416) / 180);
-		int y = 1000 * sin((angulo*3.1416) / 180);
-		line(WIDTH / 2, HEIGHT / 2, x, y);
+		int x = 300 * cos((angulo*3.1416) / 180);
+		int y = 300 * sin((angulo*3.1416) / 180);
+		line(cx, cy, x + cx, y + cy);
 		
 		
 

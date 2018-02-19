@@ -24,9 +24,9 @@
 
 
 
-void BaseApplication::line(int X1, int Y1, int X2, int Y2) {
+void BaseApplication::line(const float& x0, const float& y0, const float& x1, const float& y1) {
 
-	int dx = X2 - X1;
+	/*int dx = X2 - X1;
 	int dy = Y2 - Y1;
 
 	int d = dy - (dx / 2);
@@ -79,9 +79,153 @@ void BaseApplication::line(int X1, int Y1, int X2, int Y2) {
 
 
 	}
+*/
 
+	int dx = (int)(x1 - x0);
+	int dy = (int)(y1 - y0);
 
-	
+	int step = 2 * dy - dx;
+	//int dS = 2 * dy;
+	//int dE = 2 * dx;
+	//int dN = -dS;
+	//int dO = -dE;
+	//int dSO = dS + dO;
+	//int dSE = dS + dE;
+	//int dNE = -dSE;
+	//int dNO = -dSO;
+
+	putPixel((int)x0, (int)y0,255,0,0,255);
+	int y = (int)y0, x = (int)x0;
+
+	// The difference is lower in y
+	if (abs(dy) <= abs(dx)) {
+		// Is decreasing in x and decreasing in y
+		if (x0 < x1) {
+			if (y0 < y1) {
+				//color = Color(255, 0, 0, 255); // RED
+				dx = (int)(2 * dy);                        // S
+				dy = (int)(2 * (y1 - y0) - 2 * (x1 - x0)); // SW
+				while (x <= x1) {
+					x++;
+					if (step < 0) {
+						step += dx;
+					}
+					else { step += dy; y++; }
+					putPixel(x, y, 255, 0, 0, 255);
+				}
+				// Is decreasing in x and increasing in y :: y >= y1
+			}
+			else {
+				//color = Color(255, 150, 0, 255); // ORANGE
+				dx = (int)(2 * dy);                        // S
+				dy = (int)(2 * (y1 - y0) + 2 * (x1 - x0)); // SE
+				while (x <= x1) {
+					x++;
+					if (step >= 0) {
+						step += dx;
+					}
+					else { step += dy; y--; }
+					putPixel(x, y, 255, 0, 0, 255);
+				}
+			}
+		}
+		else {
+			// Is increasing in x and decreasing in y
+			if (y0 >= y1) {
+				//color = Color(0, 255, 0, 255); // GREEN
+				dx = (int)(-2 * dy);                        // N
+				dy = (int)(-2 * (y1 - y0) + 2 * (x1 - x0)); // NW
+				while (x > x1) {
+					x--;
+					if (step < 0) {
+						step += dx;
+					}
+					else { step += dy; y--; }
+					putPixel(x, y, 255, 0, 0, 255);
+				}
+				// Is increasing in x and increasing in y
+				// y >= y1
+			}
+			else {
+				//color = Color(0, 150, 255, 255); // CYAN
+				dx = (int)(-2 * dy);                        // N
+				dy = (int)(-2 * (y1 - y0) - 2 * (x1 - x0)); // NE
+				while (x > x1) {
+					x--;
+					if (step >= 0) {
+						step += dx;
+					}
+					else { step += dy; y++; }
+					putPixel(x, y, 255, 0, 0, 255);
+				}
+			}
+		}
+		// The difference is lower in x
+	}
+	else {
+		// Is decreasing in y and decreasing in x
+		if (y0 < y1) {
+			if (x0 < x1) {
+				//color = Color(150, 0, 255, 255); // VIOLET
+				dx = (int)(-2 * dx);                        // W
+				dy = (int)(2 * (y1 - y0) - 2 * (x1 - x0));  // SW
+				while (y <= y1) {
+					y++;
+					if (step >= 0) {
+						step += dx;
+					}
+					else { step += dy; x++; }
+					putPixel(x, y, 255, 0, 0, 255);
+				}
+				// Is decreasing in y and increasing in x
+				// x >= x1
+			}
+			else {
+				//color = Color(0, 0, 255, 255); // BLUE
+				dx = (int)(-2 * dx);                        // W
+				dy = (int)(-2 * (y1 - y0) - 2 * (x1 - x0)); // NE
+				while (y <= y1) {
+					y++;
+					if (step < 0) {
+						step += dx;
+					}
+					else { step += dy; x--; }
+					putPixel(x, y, 255, 0, 0, 255);
+				}
+			}
+		}
+		else {
+			// Is increasing in y and decreasing in x
+			if (x0 >= x1) {
+				//color = Color(255, 255, 150, 255); // LIME
+				dx = (int)(2 * dx);                         // E
+				dy = (int)(-2 * (y1 - y0) + 2 * (x1 - x0)); // NW
+				while (y > y1) {
+					y--;
+					if (step >= 0) {
+						step += dx;
+					}
+					else { step += dy; x--; }
+					putPixel(x, y, 255, 0, 0, 255);
+				}
+				// Is increasing in y and increasing in x
+				// x >= x1
+			}
+			else {
+				//color = Color(255, 255, 0, 255); // YELLOW
+				dx = (int)(2 * dx);                        // E
+				dy = (int)(2 * (y1 - y0) + 2 * (x1 - x0)); // SE
+				while (y > y1) {
+					y--;
+					if (step < 0) {
+						step += dx;
+					}
+					else { step += dy; x++; }
+					putPixel(x, y, 255, 0, 0, 255);
+				}
+			}
+		}
+	}
 
 
 	
