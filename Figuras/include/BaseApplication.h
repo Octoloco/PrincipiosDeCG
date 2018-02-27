@@ -80,6 +80,26 @@ public:
 	void line(const float& x0, const float& y0, const float& x1, const float& y1);
 
 
+	void Poligono(int numL);
+	void MoveTo(int angulo);
+	void LineTo(int numL);
+
+
+	int xG = 300;
+	int yG = 0;
+
+	int xA = 0;
+	int yA = 0;
+
+	int cx = WIDTH / 2;
+	int cy = HEIGHT / 2;
+
+
+	
+
+	int contLados = 1;
+
+	int angulo = 360;
 	
 	
 	virtual void keyboard(int key, int scancode, int action, int mods);

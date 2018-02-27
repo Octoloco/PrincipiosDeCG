@@ -180,8 +180,37 @@ void BaseApplication::line(const float& x0, const float& y0, const float& x1, co
 }
 
 
+void BaseApplication::Poligono(int numL) {
+	int angulo = 360;
 
+	int numeroLados = numL;
 
+	angulo = angulo / numeroLados;
+
+	for (int i = 0; i <= 360; i += angulo) {
+		
+		MoveTo(i);
+
+		LineTo(numL);
+
+	}
+}
+
+void BaseApplication::MoveTo(int angulo) {
+	xG = xA;
+	yG = yA;
+
+	xA = cos(angulo*3.1416 / 180) * 300;
+	yA = sin(angulo*3.1416 / 180) * 300;
+}
+
+void BaseApplication::LineTo(int numL) {
+
+	if (contLados != 1)
+		line(xG + cx, yG + cy, xA + cx, yA + cy);
+
+	contLados += 1;
+}
 
 
 
