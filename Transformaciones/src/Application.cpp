@@ -13,10 +13,11 @@ void Application::update() {
 	mat3 trans1;
 	mat3 trans2;
 	mat3 trans3;
-	angle += 1;
+	angle += 4;
+	angle2 -= 2;
 
 	rot1 = rot1.rot(angle);
-	rot2 = rot2.rot(angle+5);
+	rot2 = rot2.rot(angle2);
 
 	trans1 = trans1.trans(0, 0);
 	trans3 = trans3.trans(200, 200);

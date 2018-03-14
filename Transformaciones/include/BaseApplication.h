@@ -95,7 +95,7 @@ public:
 	std::vector<vec3> vcopy;
 	float angle = 0;
 
-	
+	float angle2 = 0;
 
 
 	int xG = 300;
